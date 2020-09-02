@@ -3,9 +3,10 @@ import React, {Component} from 'react'
 class App extends Component {
     render() {
         return (
-            <div>
-                Hello World
-            </div>
+            <ul className="my-list">
+                <li>{true?'DEMO.com':'test.com'}</li>
+                <li>I love React</li>
+            </ul>
         )
     }
 }
