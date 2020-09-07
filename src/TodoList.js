@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import store from './store'
-import { changeInputAction, addItemAction, deleteItemAction } from './store/actionCreators'
+import { changeInputAction, addItemAction, deleteItemAction, getTodoList, getMyListAction} from './store/actionCreators'
 import TodoListUI from './TodoListUI'
+//import axios from 'axios'
 
 class TodoList extends Component {
     constructor(props) {
@@ -17,17 +18,17 @@ class TodoList extends Component {
     }
     render() {
         return (
-            <TodoListUI 
-                inputValue = {this.state.inputValue}
-                changeInputValue = {this.changeInputValue}
-                clickBtn = {this.clickBtn}
-                list = {this.state.list}
-                deleteItem = {this.deleteItem}
+            <TodoListUI
+                inputValue={this.state.inputValue}
+                changeInputValue={this.changeInputValue}
+                clickBtn={this.clickBtn}
+                list={this.state.list}
+                deleteItem={this.deleteItem}
             />
         );
     }
 
-    changeInputValue(e){
+    changeInputValue(e) {
         const action = //{
             //type: CHANGE_INPUT,
             //value: e.target.value
@@ -37,17 +38,25 @@ class TodoList extends Component {
         store.dispatch(action)
     }
 
-    storeChange(){
+    componentDidMount() {
+        // const action = getTodoList()
+        // store.dispatch(action)
+        const action = getMyListAction()
+        store.dispatch(action)
+    }
+
+    storeChange() {
         this.setState(store.getState)
     }
 
-    clickBtn(){
+    clickBtn() {
         //console.log('clickbtn')
         //const action = {type: ADD_ITEM}
         const action = addItemAction()
         store.dispatch(action)
     }
-    deleteItem(index){
+
+    deleteItem(index) {
         console.log(index)
         //const action = {
         //    type: DELETE_ITEM,
