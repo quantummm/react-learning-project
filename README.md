@@ -6,12 +6,12 @@ React Project
 
 ###  Structure:
 
-demo01 React
-demo02 Redux (redux-sage, redux-thunk)
-demo03 react-redux
-demo04 React Router
-demo05 React Router
-demo06 React Hooks
+- demo01 React
+- demo02 Redux (redux-sage, redux-thunk)
+- demo03 react-redux
+- demo04 React Router
+- demo05 React Router
+- demo06 React Hooks
 
 
 
